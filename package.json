@@ -4,7 +4,9 @@
   "description": "Interface UI Icons Library",
   "private": true,
   "scripts": {
-    "example": "pnpm -C example dev"
+    "build:icons": "pnpm -C packages/material-icons build",
+    "example": "pnpm -C example dev",
+    "prepare": "husky install"
   },
   "keywords": [
     "icon",
@@ -17,9 +19,13 @@
   "license": "MIT",
   "devDependencies": {
     "@antfu/eslint-config": "^2.4.6",
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@commitlint/types": "^18.4.3",
     "@typescript-eslint/eslint-plugin": "^6.4.0",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.0.1"
+    "eslint-plugin-prettier": "^5.0.1",
+    "husky": "^8.0.3"
   }
 }
