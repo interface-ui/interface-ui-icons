@@ -1,0 +1,49 @@
+{
+  "name": "@interface-ui/icons",
+  "version": "0.0.1-alpha.0",
+  "description": "Vue component of material icons for Interface UI",
+  "private": false,
+  "keywords": [
+    "icon",
+    "material symbols",
+    "vue",
+    "interface-ui"
+  ],
+  "author": "Interface UI",
+  "license": "MIT",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "pnpm run build:generate && run-p build:build build:types",
+    "build:generate": "tsx build/svg2vue.ts",
+    "build:build": "rm -rf dist && vite build && pnpm run build:types",
+    "build:types": "vue-tsc --declaration --emitDeclarationOnly"
+  },
+  "peerDependencies": {
+    "vue": "^3.3.8"
+  },
+  "devDependencies": {
+    "@interface-ui/icons-svg": "workspace:^",
+    "@pnpm/find-workspace-dir": "^6.0.2",
+    "@pnpm/find-workspace-packages": "^6.0.9",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.10.4",
+    "@vitejs/plugin-vue": "^4.5.2",
+    "chalk": "^5.3.0",
+    "consola": "^3.2.3",
+    "fast-glob": "^3.3.2",
+    "fs-extra": "^11.2.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.1.1",
+    "tsx": "^4.6.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8",
+    "vue": "^3.3.8",
+    "vue-tsc": "^1.8.25"
+  }
+}

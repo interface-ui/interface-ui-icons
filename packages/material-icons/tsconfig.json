@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "jsx": "preserve",
+    "lib": ["ES2018", "DOM"],
+    "baseUrl": ".",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "types": [],
+    "strict": true,
+    "noImplicitAny": true,
+    "declaration": true,
+    "declarationDir": "./dist/types",
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "references": [{ "path": "./tsconfig.build.json" }],
+  "include": ["./src/**/*"]
+}

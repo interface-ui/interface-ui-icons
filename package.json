@@ -1,0 +1,25 @@
+{
+  "name": "interface-ui-icons",
+  "version": "1.0.0",
+  "description": "Interface UI Icons Library",
+  "private": true,
+  "scripts": {
+    "example": "pnpm -C example dev"
+  },
+  "keywords": [
+    "icon",
+    "material symbols",
+    "svg",
+    "vue",
+    "interface-ui"
+  ],
+  "author": "Interface UI",
+  "license": "MIT",
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.4.6",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.0.1"
+  }
+}

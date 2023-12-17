@@ -1,0 +1,14 @@
+{
+  "name": "@interface-ui/icons-svg",
+  "version": "1.0.0",
+  "description": "Material SVG icons for Interface UI",
+  "private": false,
+  "keywords": [
+    "icon",
+    "material symbols",
+    "svg",
+    "interface-ui"
+  ],
+  "author": "Interface UI",
+  "license": "MIT"
+}
