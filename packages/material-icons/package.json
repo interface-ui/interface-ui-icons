@@ -11,18 +11,29 @@
   ],
   "author": "Interface UI",
   "license": "MIT",
-  "module": "dist/index.js",
-  "types": "dist/types/index.d.ts",
+  "bugs": {
+    "url": "https://github.com/interface-ui/interface-ui-icons/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/interface-ui/interface-ui-icons",
+    "directory": "packages/material-icons"
+  },
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "types/index.d.ts",
   "type": "module",
   "files": [
-    "dist"
+    "es",
+    "lib",
+    "types"
   ],
   "scripts": {
     "dev": "vite",
-    "build": "pnpm run build:generate && run-p build:build build:types",
+    "build": "pnpm run build:generate && run-p build:lib build:types",
     "build:generate": "tsx build/svg2vue.ts",
-    "build:build": "rm -rf dist && vite build && pnpm run build:types",
-    "build:types": "vue-tsc --declaration --emitDeclarationOnly"
+    "build:lib": "rm -rf es && rm -rf lib && vite build",
+    "build:types": "rm -rf types && vue-tsc --declaration --emitDeclarationOnly"
   },
   "peerDependencies": {
     "vue": "^3.3.8"

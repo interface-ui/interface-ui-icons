@@ -23,19 +23,15 @@ export const svgToVue = async (file: string) => {
 
   const code = await format(
     `
-    <template>
-    ${template}
-    </template>
-
-    <script setup lang="ts">
-    defineOptions({
-      name: '${name}',
-    })
-    </script>`,
-    { parser: 'vue', semi: false, singleQuote: true },
+    import { createSvgIcon, withInstall } from '../utils';
+    import type { SFCWithInstall } from '../utils';
+    const ${name} = createSvgIcon('${template}');
+    export default withInstall(${name}, '${name}') as SFCWithInstall<typeof ${name}>;
+    `,
+    { parser: 'typescript', semi: false, singleQuote: true },
   )
 
-  writeFile(path.resolve(pathComponents, `${name}.vue`), code, 'utf-8')
+  writeFile(path.resolve(pathComponents, `${name}.ts`), code, 'utf-8')
 }
 
 export const generateEntryFile = async (files: string[]) => {
@@ -43,7 +39,7 @@ export const generateEntryFile = async (files: string[]) => {
     files
       .map(file => {
         const name = path.basename(file).replace('.svg', '')
-        return `export { default as ${name} } from './${name}.vue'`
+        return `export { default as ${name} } from './${name}'`
       })
       .join('\n'),
     { parser: 'typescript', semi: false, singleQuote: true },

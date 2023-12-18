@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "ES2018",
+    "target": "ES2020",
     "jsx": "preserve",
-    "lib": ["ES2018", "DOM"],
+    "lib": ["ES2020", "DOM"],
     "baseUrl": ".",
     "module": "ESNext",
     "moduleResolution": "node",
@@ -10,7 +10,7 @@
     "strict": true,
     "noImplicitAny": true,
     "declaration": true,
-    "declarationDir": "./dist/types",
+    "declarationDir": "./types",
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,

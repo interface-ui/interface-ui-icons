@@ -10,5 +10,16 @@
     "interface-ui"
   ],
   "author": "Interface UI",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/interface-ui/interface-ui-icons/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/interface-ui/interface-ui-icons",
+    "directory": "packages/material-icons-svg"
+  },
+  "files": [
+    "**/*.svg"
+  ]
 }
