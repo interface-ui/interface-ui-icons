@@ -1,0 +1,45 @@
+@font-face {
+  font-family: 'Material Icons Filled';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(../font/MaterialIcons-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Material Icons Outlined';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(../font/MaterialIconsOutlined-Regular.otf) format('truetype');
+}
+@font-face {
+  font-family: 'Material Icons Round';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(../font/MaterialIconsRound-Regular.otf) format('truetype');
+}
+@font-face {
+  font-family: 'Material Icons Sharp';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(../font/MaterialIconsSharp-Regular.otf) format('truetype');
+}
+@font-face {
+  font-family: 'Material Icons Two Tone';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(../font/MaterialIconsTwoTone-Regular.otf) format('truetype');
+}

@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "build:icons": "pnpm -C packages/material-icons build",
+    "build:example": "pnpm -C example build",
     "example": "pnpm -C example dev",
     "prepare": "husky install"
   },
