@@ -2,7 +2,7 @@
   "name": "@interface-ui/icons-svg",
   "version": "1.0.0",
   "description": "Material SVG icons for Interface UI",
-  "private": false,
+  "private": true,
   "keywords": [
     "icon",
     "material symbols",
