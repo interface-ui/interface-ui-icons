@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { computed, ref, watch } from 'vue'
+import useClipboard from 'vue-clipboard3'
 import { IconType } from '../types'
 import IconButton from './IconButton.vue'
 
@@ -23,6 +24,23 @@ const displayIcons = computed(() => {
 
   return icons.value.filter(icon => icon.includes(props.search.toLowerCase()))
 })
+
+const { toClipboard } = useClipboard()
+
+const copy = async (text: string) => {
+  let iconName = (text + '_' + props.type)
+    .split('_')
+    .map(item => item[0].toUpperCase() + item.slice(1))
+    .join('')
+  const str = `<${iconName} />`
+
+  try {
+    await toClipboard(str)
+    console.log('Success')
+  } catch (e) {
+    console.error(e)
+  }
+}
 </script>
 
 <template>
@@ -32,6 +50,7 @@ const displayIcons = computed(() => {
       :key="icon"
       :type="$props.type"
       :name="icon"
+      @click="copy(icon)"
     >
       {{ icon }}
     </IconButton>
