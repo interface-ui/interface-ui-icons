@@ -1,17 +1,17 @@
 <script lang="ts" setup>
 import { computed, ref, watch } from 'vue'
 import useClipboard from 'vue-clipboard3'
-import { IconType } from '../types'
-import IconButton from './IconButton.vue'
+import type { IconType } from '../types'
 import { rename } from '../utils'
+import IconButton from './IconButton.vue'
 
-const props = defineProps<{ type: IconType; search: string }>()
+const props = defineProps<{ type: IconType, search: string }>()
 const icons = ref<string[]>([])
 
 watch(
   () => props.type,
   () => {
-    import(`../icons/${props.type}.json`).then(module => {
+    import(`../icons/${props.type}.json`).then((module) => {
       icons.value = module.default
     })
   },
@@ -19,9 +19,8 @@ watch(
 )
 
 const displayIcons = computed(() => {
-  if (props.search === '') {
+  if (props.search === '')
     return icons.value
-  }
 
   const searchText = props.search.trim().replace(/\s+/g, '_').toLowerCase()
   return icons.value.filter(icon => icon.includes(searchText))
@@ -29,7 +28,7 @@ const displayIcons = computed(() => {
 
 const { toClipboard } = useClipboard()
 
-const copy = async (text: string) => {
+async function copy(text: string) {
   // let iconName = (text + '_' + props.type)
   //   .split('_')
   //   .map(item => item[0].toUpperCase() + item.slice(1))
@@ -39,7 +38,7 @@ const copy = async (text: string) => {
 
   toClipboard(str).then(() => {
     console.log('Success')
-  }).catch(err => {
+  }).catch((err) => {
     console.error(err)
   })
 }

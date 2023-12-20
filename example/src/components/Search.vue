@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { computed, onBeforeUnmount } from 'vue'
-import { type IconType, ICON_TYPES } from '../types'
+import { ICON_TYPES, type IconType } from '../types'
 
-const props = defineProps<{ search: string; type: IconType }>()
+const props = defineProps<{ search: string, type: IconType }>()
 const emit = defineEmits<{
   'update:search': [string]
   'update:type': [IconType]
@@ -14,9 +14,9 @@ const searchText = computed({
     return props.search
   },
   set(value) {
-    if (timer) {
+    if (timer)
       clearTimeout(timer)
-    }
+
     timer = setTimeout(() => {
       emit('update:search', value)
     }, 300)
@@ -34,9 +34,8 @@ const iconType = computed({
 })
 
 onBeforeUnmount(() => {
-  if (timer) {
+  if (timer)
     clearTimeout(timer)
-  }
 })
 </script>
 
@@ -44,12 +43,12 @@ onBeforeUnmount(() => {
   <div class="search">
     <span class="material-icons outlined search-icon">search</span>
     <input
+      v-model="searchText"
       class="search-input"
       type="text"
       placeholder="Search"
-      v-model="searchText"
-    />
-    <select class="search-select" v-model="iconType">
+    >
+    <select v-model="iconType" class="search-select">
       <option v-for="iconType in ICON_TYPES" :key="iconType" :value="iconType">
         {{ iconType }}
       </option>

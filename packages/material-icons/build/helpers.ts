@@ -1,12 +1,12 @@
+import { readFile, writeFile } from 'node:fs/promises'
+import path from 'node:path'
 import { findWorkspaceDir } from '@pnpm/find-workspace-dir'
 import { findWorkspacePackages } from '@pnpm/find-workspace-packages'
 import glob from 'fast-glob'
-import { readFile, writeFile } from 'node:fs/promises'
-import path from 'node:path'
 import { format } from 'prettier'
 import { pathComponents } from './path'
 
-export const getSvgs = async () => {
+export async function getSvgs() {
   const pkgs = await findWorkspacePackages(
     (await findWorkspaceDir(process.cwd()))!,
   )
@@ -17,7 +17,7 @@ export const getSvgs = async () => {
   return glob('**/*.svg', { cwd: svgPkg.dir, absolute: true })
 }
 
-export const svgToVue = async (file: string) => {
+export async function svgToVue(file: string) {
   const template = await readFile(file, 'utf-8')
   const name = path.basename(file).replace('.svg', '')
 
@@ -34,10 +34,10 @@ export const svgToVue = async (file: string) => {
   writeFile(path.resolve(pathComponents, `${name}.ts`), code, 'utf-8')
 }
 
-export const generateEntryFile = async (files: string[]) => {
+export async function generateEntryFile(files: string[]) {
   const code = await format(
     files
-      .map(file => {
+      .map((file) => {
         const name = path.basename(file).replace('.svg', '')
         return `export { default as ${name} } from './${name}'`
       })

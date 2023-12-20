@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { IconType } from '../types'
 import { computed } from 'vue'
+import type { IconType } from '../types'
 
-const props = defineProps<{ type: IconType; name: string }>()
+const props = defineProps<{ type: IconType, name: string }>()
 const iconName = computed(() =>
   props.name
     .split('_')

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { type IconType } from './types'
+import type { IconType } from './types'
 import Gallery from './components/Gallery.vue'
 import Search from './components/Search.vue'
 
@@ -12,7 +12,7 @@ const searchText = ref('')
 
 <template>
   <header>
-    <img class="logo" src="./assets/logo.png" alt="Interface UI Logo" />
+    <img class="logo" src="./assets/logo.png" alt="Interface UI Logo">
     <Search v-model:search="searchText" v-model:type="selectedType" />
   </header>
 
