@@ -49,8 +49,8 @@ onBeforeUnmount(() => {
       placeholder="Search"
     >
     <select v-model="iconType" class="search-select">
-      <option v-for="iconType in ICON_TYPES" :key="iconType" :value="iconType">
-        {{ iconType }}
+      <option v-for="typeName in ICON_TYPES" :key="typeName" :value="typeName">
+        {{ typeName }}
       </option>
     </select>
   </div>
