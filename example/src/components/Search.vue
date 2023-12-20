@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { computed, onBeforeUnmount } from 'vue'
-import { type IconType, ICON_TYPES } from '../types'
+import { ICON_TYPES, type IconType } from '../types'
 
-const props = defineProps<{ search: string; type: IconType }>()
+const props = defineProps<{ search: string, type: IconType }>()
 const emit = defineEmits<{
   'update:search': [string]
   'update:type': [IconType]
@@ -14,9 +14,9 @@ const searchText = computed({
     return props.search
   },
   set(value) {
-    if (timer) {
+    if (timer)
       clearTimeout(timer)
-    }
+
     timer = setTimeout(() => {
       emit('update:search', value)
     }, 300)
@@ -34,9 +34,8 @@ const iconType = computed({
 })
 
 onBeforeUnmount(() => {
-  if (timer) {
+  if (timer)
     clearTimeout(timer)
-  }
 })
 </script>
 
@@ -44,14 +43,14 @@ onBeforeUnmount(() => {
   <div class="search">
     <span class="material-icons outlined search-icon">search</span>
     <input
+      v-model="searchText"
       class="search-input"
       type="text"
       placeholder="Search"
-      v-model="searchText"
-    />
-    <select class="search-select" v-model="iconType">
-      <option v-for="iconType in ICON_TYPES" :key="iconType" :value="iconType">
-        {{ iconType }}
+    >
+    <select v-model="iconType" class="search-select">
+      <option v-for="typeName in ICON_TYPES" :key="typeName" :value="typeName">
+        {{ typeName }}
       </option>
     </select>
   </div>
@@ -62,9 +61,9 @@ onBeforeUnmount(() => {
   display: inline-flex;
   align-items: center;
   height: 56px;
-  min-width: 40%;
   border-radius: 56px;
   gap: 16px;
+  width: 95%;
   padding: 0 16px;
   box-sizing: border-box;
   background: linear-gradient(
@@ -73,11 +72,22 @@ onBeforeUnmount(() => {
     rgba(105, 145, 214, 0.08)
   );
 }
+@media screen and (min-width: 720px) {
+  .search{
+    width: 70%;
+  }
+}
+@media screen and (min-width: 960px) {
+  .search{
+    width: 40%;
+  }
+}
 .search-icon {
   font-size: 24px;
 }
 .search-input {
-  flex: 1;
+  flex-grow: 1;
+  width: 100%;
 }
 .search-input,
 .search-select {
@@ -90,7 +100,7 @@ onBeforeUnmount(() => {
 .search-select {
   cursor: pointer;
   border-left: 1px solid rgba(0, 0, 0, 0.3);
-  padding: 0 16px;
+  padding-left: 16px;
   color: #5f6368;
 }
 </style>

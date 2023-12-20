@@ -1,6 +1,6 @@
 import { defineComponent, h } from 'vue'
 
-const extractAttrs = (attrsString: string) => {
+function extractAttrs(attrsString: string) {
   const matches = attrsString.matchAll(/([a-zA-Z\-]+)="([^"]+)"/gm)
   return [...matches].reduce(
     (attrs, [_, key, value]) => {

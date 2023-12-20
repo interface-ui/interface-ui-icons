@@ -1,15 +1,17 @@
 <script lang="ts" setup>
 import { computed, ref, watch } from 'vue'
-import { IconType } from '../types'
+import useClipboard from 'vue-clipboard3'
+import type { IconType } from '../types'
+import { rename } from '../utils'
 import IconButton from './IconButton.vue'
 
-const props = defineProps<{ type: IconType; search: string }>()
+const props = defineProps<{ type: IconType, search: string }>()
 const icons = ref<string[]>([])
 
 watch(
   () => props.type,
   () => {
-    import(`../icons/${props.type}.json`).then(module => {
+    import(`../icons/${props.type}.json`).then((module) => {
       icons.value = module.default
     })
   },
@@ -17,12 +19,26 @@ watch(
 )
 
 const displayIcons = computed(() => {
-  if (props.search === '') {
+  if (props.search === '')
     return icons.value
-  }
 
-  return icons.value.filter(icon => icon.includes(props.search.toLowerCase()))
+  const searchText = props.search.trim().replace(/\s+/g, '_').toLowerCase()
+  return icons.value.filter(icon => icon.includes(searchText))
 })
+
+const { toClipboard } = useClipboard()
+
+async function copy(text: string) {
+  const iconName = rename(`${text}_${props.type}`)
+  const str = `import ${iconName} from '@interface-ui/icons/es/components/${iconName}'`
+
+  toClipboard(str).then(() => {
+    // eslint-disable-next-line no-console
+    console.log('Success')
+  }).catch((err) => {
+    console.error(err)
+  })
+}
 </script>
 
 <template>
@@ -32,6 +48,7 @@ const displayIcons = computed(() => {
       :key="icon"
       :type="$props.type"
       :name="icon"
+      @click="copy(icon)"
     >
       {{ icon }}
     </IconButton>
@@ -41,9 +58,15 @@ const displayIcons = computed(() => {
 <style>
 .gallery-container {
   display: grid;
-  align-content: start;
+  flex-wrap: wrap;
+  justify-content: center;
   column-gap: 16px;
   row-gap: 26px;
-  grid-template-columns: repeat(auto-fill, 112px);
+  grid-template-columns: repeat(auto-fill, 96px);
+}
+@media screen and (min-width: 720px) {
+  .gallery-container {
+    grid-template-columns: repeat(auto-fill, 112px);
+  }
 }
 </style>
