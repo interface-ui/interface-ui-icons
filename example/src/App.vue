@@ -37,7 +37,13 @@ header {
   justify-content: center;
 }
 .logo {
+  display: none;
   height: 56px;
+}
+@media screen and (min-width: 720px) {
+  .logo {
+    display: inline;
+  }
 }
 [v-cloak] {
   display: none;

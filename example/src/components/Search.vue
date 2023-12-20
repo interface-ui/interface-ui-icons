@@ -61,9 +61,9 @@ onBeforeUnmount(() => {
   display: inline-flex;
   align-items: center;
   height: 56px;
-  min-width: 40%;
   border-radius: 56px;
   gap: 16px;
+  width: 95%;
   padding: 0 16px;
   box-sizing: border-box;
   background: linear-gradient(
@@ -72,11 +72,22 @@ onBeforeUnmount(() => {
     rgba(105, 145, 214, 0.08)
   );
 }
+@media screen and (min-width: 720px) {
+  .search{
+    width: 70%;
+  }
+}
+@media screen and (min-width: 960px) {
+  .search{
+    width: 40%;
+  }
+}
 .search-icon {
   font-size: 24px;
 }
 .search-input {
-  flex: 1;
+  flex-grow: 1;
+  width: 100%;
 }
 .search-input,
 .search-select {
@@ -89,7 +100,7 @@ onBeforeUnmount(() => {
 .search-select {
   cursor: pointer;
   border-left: 1px solid rgba(0, 0, 0, 0.3);
-  padding: 0 16px;
+  padding-left: 16px;
   color: #5f6368;
 }
 </style>

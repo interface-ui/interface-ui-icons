@@ -29,7 +29,7 @@ button {
   border: none;
   outline: none;
   height: 128px;
-  width: 112px;
+  width: 96px;
   border-radius: 8px;
   user-select: none;
   background: transparent;
@@ -40,6 +40,11 @@ button {
   }
   &:focus {
     background-color: rgba(60, 64, 67, 0.12);
+  }
+}
+@media screen and (min-width: 720px) {
+  button {
+    width: 112px;
   }
 }
 .icon-name {

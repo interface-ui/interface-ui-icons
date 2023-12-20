@@ -29,14 +29,11 @@ const displayIcons = computed(() => {
 const { toClipboard } = useClipboard()
 
 async function copy(text: string) {
-  // let iconName = (text + '_' + props.type)
-  //   .split('_')
-  //   .map(item => item[0].toUpperCase() + item.slice(1))
-  //   .join('')
   const iconName = rename(`${text}_${props.type}`)
   const str = `import ${iconName} from '@interface-ui/icons/es/components/${iconName}'`
 
   toClipboard(str).then(() => {
+    // eslint-disable-next-line no-console
     console.log('Success')
   }).catch((err) => {
     console.error(err)
@@ -61,9 +58,15 @@ async function copy(text: string) {
 <style>
 .gallery-container {
   display: grid;
-  align-content: start;
+  flex-wrap: wrap;
+  justify-content: center;
   column-gap: 16px;
   row-gap: 26px;
-  grid-template-columns: repeat(auto-fill, 112px);
+  grid-template-columns: repeat(auto-fill, 96px);
+}
+@media screen and (min-width: 720px) {
+  .gallery-container {
+    grid-template-columns: repeat(auto-fill, 112px);
+  }
 }
 </style>
