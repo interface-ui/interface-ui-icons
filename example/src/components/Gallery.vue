@@ -22,7 +22,8 @@ const displayIcons = computed(() => {
     return icons.value
   }
 
-  return icons.value.filter(icon => icon.includes(props.search.toLowerCase()))
+  const searchText = props.search.trim().replace(/\s+/g, '_').toLowerCase()
+  return icons.value.filter(icon => icon.includes(searchText))
 })
 
 const { toClipboard } = useClipboard()

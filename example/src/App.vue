@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { type IconType } from './types'
 import Gallery from './components/Gallery.vue'
 import Search from './components/Search.vue'
@@ -8,12 +8,6 @@ const selectedType = ref<IconType>(
   (sessionStorage.getItem('iconType') as IconType) || 'filled',
 )
 const searchText = ref('')
-
-const iconName = computed(() => {
-  if (searchText.value.includes(' ')) {
-    return searchText.value.replace(' ', '_')
-  } else return searchText.value
-})
 </script>
 
 <template>
@@ -24,7 +18,7 @@ const iconName = computed(() => {
 
   <main>
     <KeepAlive>
-      <Gallery :type="selectedType" :search="iconName" />
+      <Gallery :type="selectedType" :search="searchText" />
     </KeepAlive>
   </main>
 </template>
