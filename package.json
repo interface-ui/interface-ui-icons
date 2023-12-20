@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "Interface UI Icons Library",
   "private": true,
+  "type": "module",
   "scripts": {
     "build:icons": "pnpm -C packages/material-icons build",
     "build:example": "pnpm -C example build",
     "example": "pnpm -C example dev",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "keywords": [
     "icon",
