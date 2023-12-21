@@ -5,7 +5,7 @@ import dts from 'vite-plugin-dts'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), dts({ outDir: 'es' }), dts({ outDir: 'lib' })],
+  plugins: [vue(), dts({ outDir: ['es', 'lib'] })],
   build: {
     target: 'modules',
     minify: true,
