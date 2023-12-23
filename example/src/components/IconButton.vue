@@ -12,7 +12,7 @@ const iconName = computed(() =>
 </script>
 
 <template>
-  <button v-cloak>
+  <button v-cloak class="icon-button">
     <span class="material-icons" :class="$props.type">
       {{ $props.name }}
     </span>
@@ -21,7 +21,7 @@ const iconName = computed(() =>
 </template>
 
 <style>
-button {
+.icon-button {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
@@ -43,7 +43,7 @@ button {
   }
 }
 @media screen and (min-width: 720px) {
-  button {
+  .icon-button {
     width: 112px;
   }
 }

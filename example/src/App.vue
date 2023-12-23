@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { Notifications, Notivue, materialTheme } from 'notivue'
 import type { IconType } from './types'
 import Gallery from './components/Gallery.vue'
 import Search from './components/Search.vue'
@@ -21,6 +22,10 @@ const searchText = ref('')
       <Gallery :type="selectedType" :search="searchText" />
     </KeepAlive>
   </main>
+
+  <Notivue v-slot="item">
+    <Notifications :item="item" :theme="materialTheme" />
+  </Notivue>
 </template>
 
 <style>
