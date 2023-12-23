@@ -32,6 +32,9 @@ importers:
 
   example:
     dependencies:
+      notivue:
+        specifier: ^1.4.5
+        version: 1.4.5
       vue:
         specifier: ^3.3.11
         version: 3.3.13(typescript@5.3.3)
@@ -3970,6 +3973,21 @@ packages:
   /normalize-registry-url@2.0.0:
     resolution: {integrity: sha512-3e9FwDyRAhbxXw4slm4Tjv40u78yPwMc/WZkACpqNQOs5sM7wic853AeTLkMFEVhivZkclGYlse8iYsklz0Yvg==}
     dev: true
+
+  /notivue@1.4.5:
+    resolution: {integrity: sha512-REw58I8oHlYTx8j+IJueiPJkBS/FxEMj3Etg2avIN77PhNyYZ5j4V6g82TbyB+jH9R67/3gitM770CUEuNrarQ==}
+    peerDependencies:
+      '@nuxt/kit': '>=3.5.0'
+      '@nuxt/schema': '>=3.5.0'
+      defu: '>=6'
+    peerDependenciesMeta:
+      '@nuxt/kit':
+        optional: true
+      '@nuxt/schema':
+        optional: true
+      defu:
+        optional: true
+    dev: false
 
   /npm-run-all@4.1.5:
     resolution: {integrity: sha512-Oo82gJDAVcaMdi3nuoKFavkIHBRVqQ1qvMb+9LHk/cF4P6B2m8aP04hGf7oL6wZ9BuGwX1onlLhpuoofSyoQDQ==}
