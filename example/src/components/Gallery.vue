@@ -3,6 +3,7 @@ import { computed, ref, watch } from 'vue'
 import useClipboard from 'vue-clipboard3'
 import type { IconType } from '../types'
 import { rename } from '../utils'
+import { push } from '../main'
 import IconButton from './IconButton.vue'
 
 const props = defineProps<{ type: IconType, search: string }>()
@@ -33,8 +34,10 @@ async function copy(text: string) {
   const str = `import ${iconName} from '@interface-ui/icons/es/components/${iconName}'`
 
   toClipboard(str).then(() => {
-    // eslint-disable-next-line no-console
-    console.log('Success')
+    push.success({
+      title: `<${iconName} />`,
+      message: 'Copied import statement to clipboard',
+    })
   }).catch((err) => {
     console.error(err)
   })

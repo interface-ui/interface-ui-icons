@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "notivue": "^1.4.5",
     "vue": "^3.3.11",
     "vue-clipboard3": "^2.0.0"
   },
