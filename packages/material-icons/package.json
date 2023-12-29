@@ -33,8 +33,8 @@
       "require": "./lib/index.js"
     },
     "./*": {
-      "import": "./es/components/*",
-      "require": "./lib/components/*",
+      "import": "./es/components/*.js",
+      "require": "./lib/components/*.js",
       "types": "./es/components/*.d.ts"
     }
   },
