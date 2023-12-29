@@ -31,7 +31,7 @@ const { toClipboard } = useClipboard()
 
 async function copy(text: string) {
   const iconName = rename(`${text}_${props.type}`)
-  const str = `import ${iconName} from '@interface-ui/icons/es/components/${iconName}'`
+  const str = `import ${iconName} from '@interface-ui/icons/${iconName}'`
 
   toClipboard(str).then(() => {
     push.success({
