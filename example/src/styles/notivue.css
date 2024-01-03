@@ -1,0 +1,5 @@
+@media (max-width: 720px) {
+  :root {
+    --nv-root-x-align: center;
+  }
+}

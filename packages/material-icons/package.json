@@ -1,6 +1,6 @@
 {
   "name": "@interface-ui/icons",
-  "version": "0.0.1-alpha.0",
+  "version": "0.0.1-alpha.2",
   "description": "Vue component of material icons for Interface UI",
   "private": false,
   "keywords": [
@@ -27,6 +27,17 @@
     "es",
     "lib"
   ],
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
+    "./*": {
+      "import": "./es/components/*.js",
+      "require": "./lib/components/*.js",
+      "types": "./es/components/*.d.ts"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "pnpm run build:generate && run-p build:lib",
