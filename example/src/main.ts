@@ -1,5 +1,4 @@
 import { createApp } from 'vue'
-import './style.css'
 import './styles/index.css'
 import { createNotivue } from 'notivue'
 import App from './App.vue'
@@ -9,7 +8,7 @@ import 'notivue/animations.css'
 
 const app = createApp(App)
 export const push = createNotivue(app, {
-  position: 'top-right',
+  position: 'bottom-right',
   limit: 3,
 })
 app.mount('#app')
